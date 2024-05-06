@@ -52,12 +52,14 @@ const Page = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setFactIndex((prevIndex) => prevIndex + 1);
-      setSelectedPlace({ name: "Fact", coordinates: { x: 0, y: 0 } });
-    }, 60000);
+      if (factIndex < 14 && started) {
+        setFactIndex((prevIndex) => prevIndex + 1);
+        setSelectedPlace({ name: "Fact", coordinates: { x: 0, y: 0 } });
+      }
+    }, 500);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [factIndex, started]);
 
   const handleClick = (place: Place) => {
     setSelectedPlace(place);

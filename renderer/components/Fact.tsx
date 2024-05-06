@@ -13,6 +13,10 @@ const Fact = ({ index }: { index: number }) => {
     "Rum running boats often threw large parties to attract customers.",
     "Some rum runners would disguise their vessels as fishing boats or pleasure yachts to blend in with regular maritime traffic, making it harder for law enforcement to intercept them.",
     "The geography of British Columbia's coast provided numerous hidden coves, inlets, and remote islands that served as ideal drop-off points for illicit alcohol shipments destined for thirsty American consumers.",
+    "The demand for illegal alcohol during Prohibition led to the rise of organized crime syndicates, including the notorious Chicago Outfit led by Al Capone.",
+    "Prohibition had unintended consequences, including an increase in violent crime, corruption among law enforcement officials, and the proliferation of speakeasies (illegal drinking establishments).",
+    "The 1920s and early 1930s saw a significant rise in alcohol consumption despite Prohibition laws, as people found ways to obtain liquor through illegal means.",
+    "Prohibition ended in 1933 with the ratification of the 21st Amendment to the United States Constitution, which repealed the 18th Amendment and legalized the sale and consumption of alcohol nationwide.",
   ];
   return (
     <div
