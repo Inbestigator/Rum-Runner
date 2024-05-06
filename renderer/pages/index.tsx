@@ -1,17 +1,14 @@
 import React, { useState, createContext, useEffect } from "react";
 import BrewMenu from "../components/BrewMenu";
 import UserStats from "../components/UserStats";
-import HireMenu, { Employee } from "../components/HireMenu"; // Import the HireMenu component and Employee type
+import HireMenu, { Employee } from "../components/HireMenu";
 import BuyMenu, { Ship } from "../components/BuyMenu";
 import ShipMenu from "../components/ShipMenu";
-import Image from "next/image";
-// Define your data structure here
 interface Place {
   name: string;
   coordinates: { x: number; y: number };
 }
 
-// Define your places
 const places: Place[] = [
   { name: "Hire", coordinates: { x: 165, y: 310 } },
   { name: "Brewery", coordinates: { x: 50, y: 150 } },

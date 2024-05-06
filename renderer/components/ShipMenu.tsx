@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   BalanceContext,
   EmployeeContext,
@@ -34,7 +34,6 @@ const ShipMenu = () => {
     const selectedShipName = event.target.value;
     setSelectedShip(selectedShipName);
 
-    // Set maximum rum quantity based on the selected ship
     const ship = ships.find((ship) => ship.name === selectedShipName);
     if (ship) {
       let employeesNeeded = 0;

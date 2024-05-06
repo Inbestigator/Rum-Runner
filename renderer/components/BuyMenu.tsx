@@ -39,7 +39,7 @@ const BuyMenu = ({ onBuy }: { onBuy: (ship: Ship) => void }) => {
           </button>
         </div>
       ))}
-      {balance >= 1000 && (
+      {balance >= 5000 && (
         <div className="flex items-center justify-between mb-2">
           <Image
             src="pixelart-goldflyingboat.png"
@@ -55,10 +55,28 @@ const BuyMenu = ({ onBuy }: { onBuy: (ship: Ship) => void }) => {
           <button
             className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
             onClick={() => {
-              alert("You win!!!");
+              alert("You win!");
               window.location.reload();
             }}
           >
+            Build
+          </button>
+        </div>
+      )}
+      {balance < 5000 && (
+        <div className="flex items-center justify-between mb-2">
+          <Image
+            src="pixelart-shadowgoldflyingboat.png"
+            width={50}
+            height={50}
+            alt=""
+          ></Image>
+          <div className="flex items-start justify-between mb-2 flex-col">
+            <div>???</div>
+            <div>Price: 5000</div>
+          </div>
+          <div className="p-2" />
+          <button className="px-4 py-2 bg-green-900 text-white rounded cursor-default">
             Build
           </button>
         </div>
