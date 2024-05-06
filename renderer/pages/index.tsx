@@ -56,7 +56,7 @@ const Page = () => {
         setFactIndex((prevIndex) => prevIndex + 1);
         setSelectedPlace({ name: "Fact", coordinates: { x: 0, y: 0 } });
       }
-    }, 500);
+    }, 60000);
 
     return () => clearInterval(timer);
   }, [factIndex, started]);
