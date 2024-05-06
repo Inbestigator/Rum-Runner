@@ -4,6 +4,7 @@ import UserStats from "../components/UserStats";
 import HireMenu, { Employee } from "../components/HireMenu";
 import BuyMenu, { Ship } from "../components/BuyMenu";
 import ShipMenu from "../components/ShipMenu";
+import Fact from "../components/Fact";
 interface Place {
   name: string;
   coordinates: { x: number; y: number };
@@ -40,6 +41,7 @@ const Page = () => {
   const [employeePrice, setEmployeePrice] = useState<number>(0);
   const [ownedShips, setOwnedShips] = useState<Ship[]>([]);
   const [started, setStarted] = useState<boolean>(false);
+  const [factIndex, setFactIndex] = useState<number>(-1);
 
   useEffect(() => {
     if (balance <= 0) {
@@ -47,6 +49,15 @@ const Page = () => {
       window.location.reload();
     }
   }, [balance]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFactIndex((prevIndex) => prevIndex + 1);
+      setSelectedPlace({ name: "Fact", coordinates: { x: 0, y: 0 } });
+    }, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleClick = (place: Place) => {
     setSelectedPlace(place);
@@ -83,6 +94,8 @@ const Page = () => {
           <BuyMenu onBuy={handleBuy} />
         ) : place.name === "Ship" ? (
           <ShipMenu />
+        ) : place.name === "Fact" ? (
+          <Fact index={factIndex} />
         ) : null}
         <button
           className="absolute top-0 right-0 p-2 text-gray-500"
