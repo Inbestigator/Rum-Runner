@@ -12,6 +12,7 @@ const UserStats = () => {
       style={{ backgroundImage: `url('pixelart-wood.png')` }}
     >
       <div>Alcohol: {rum}</div>
+      <div>Employees: {hiredEmployees.length}</div>
       <div>Balance: ${balance}</div>
     </div>
   );

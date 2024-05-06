@@ -49,7 +49,7 @@ const BuyMenu = ({ onBuy }: { onBuy: (ship: Ship) => void }) => {
           ></Image>
           <div className="flex items-start justify-between mb-2 flex-col">
             <div>Golden flying boat</div>
-            <div>Price: 1000</div>
+            <div>Price: 5000</div>
           </div>
           <div className="p-2" />
           <button

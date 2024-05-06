@@ -78,12 +78,18 @@ const ShipMenu = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (costToSail === 0) {
+      alert("Trying to swim your goods there is not a very good idea...");
+      window.location.reload();
+      return;
+    }
     if (employeesNeeded > hiredEmployees.length) {
-      alert("Not enough employees!");
+      alert("You didn't have enough employees, so you got lost at sea!");
+      window.location.reload();
       return;
     }
     if (balance < costToSail) {
-      alert("Not enough money!");
+      setBalance((prevBalance) => prevBalance - costToSail);
       return;
     }
     if (Math.floor(Math.random() * 60) + 1 > calculateAverageLoyalty()) {
