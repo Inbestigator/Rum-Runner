@@ -8,7 +8,7 @@ const Fact = ({ index }: { index: number }) => {
     "One of the more notorious Canadian mobsters at the time, Rocco Perri was involved in various criminal activities, including rum running between Canada and the United States during Prohibition. He operated primarily in Ontario but had connections to smuggling operations across the border.",
     "Some smuggling ships could carry up to $200,000 worth of alcohol in a single trip!",
     "Joe Celona was an influential figure in Vancouver's organized crime scene, Celona was involved in various illegal activities, including rum running during Prohibition. He controlled much of the smuggling operations along the Pacific Coast, earning a reputation as a ruthless and cunning underworld boss.",
-    "Occasionally, rum runnign ships had artillery mounted on the decks to defend against authorities.",
+    "Occasionally, rum running ships had artillery mounted on the decks to defend against authorities.",
     "As many as 60 ships were seen departing at a single time stocked with illegal alcohol.",
     "Rum running boats often threw large parties to attract customers.",
     "Some rum runners would disguise their vessels as fishing boats or pleasure yachts to blend in with regular maritime traffic, making it harder for law enforcement to intercept them.",
