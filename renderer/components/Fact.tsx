@@ -1,6 +1,6 @@
 import React from "react";
 
-const Fact = ({ index }: { index: number }) => {
+const Fact = ({ index, close }: { index: number; close: () => void }) => {
   const facts: string[] = [
     "Rum running is the term for smuggling alcohol over water, while bootlegging is the term for smuggling alcohol overland.",
     'Known as the "King of the Puget Sound Bootleggers," Roy Olmstead was a former Seattle police lieutenant turned prominent rum runner during Prohibition. He ran a highly organized smuggling operation, using fast boats to transport alcohol from British Columbia to Washington state.',
@@ -20,8 +20,11 @@ const Fact = ({ index }: { index: number }) => {
   ];
   return (
     <div
-      className="bg-white p-8 rounded-lg max-w-[80%]"
+      className="bg-white p-8 rounded-lg max-w-[80%] cursor-default"
       style={{ backgroundImage: `url('pixelart-wood.png')` }}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
     >
       <h3 className="text-xl font-bold mb-4">Fact number {index + 1}</h3>
       <div>{facts[index]}</div>

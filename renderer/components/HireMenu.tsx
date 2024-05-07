@@ -74,8 +74,11 @@ const HireMenu = ({ onHire }: { onHire: (employee: Employee) => void }) => {
 
   return (
     <div
-      className="bg-white p-8 rounded-lg"
+      className="bg-white p-8 rounded-lg cursor-default"
       style={{ backgroundImage: `url('pixelart-wood.png')` }}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
     >
       <h3 className="text-xl font-bold mb-4">Hire</h3>
       {employees.map((employee, index) => (
@@ -90,7 +93,7 @@ const HireMenu = ({ onHire }: { onHire: (employee: Employee) => void }) => {
           </div>
           <div className="p-2" />
           <button
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 active:bg-green-700"
             onClick={() => onHire(employee)}
           >
             Hire

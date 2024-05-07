@@ -50,7 +50,12 @@ const ShipMenu = () => {
           break;
         case "Schooner":
           setMaxRumQuantity(100);
-          setEmployeesNeeded(20);
+          setEmployeesNeeded(10);
+          employeesNeeded = 20;
+          break;
+        case "Golden flying boat":
+          setMaxRumQuantity(1000);
+          setEmployeesNeeded(100);
           employeesNeeded = 20;
           break;
         default:
@@ -102,14 +107,17 @@ const ShipMenu = () => {
 
   return (
     <div
-      className="bg-white p-8 rounded-lg"
+      className="bg-white p-8 rounded-lg cursor-default"
       style={{ backgroundImage: `url('pixelart-wood.png')` }}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
     >
-      <h3 className="text-xl font-bold mb-4">Missions</h3>
+      <h3 className="text-xl font-bold mb-4">Sell</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="ship" className="block text-sm font-medium">
-            Select Ship:
+            Select ship:
           </label>
           <select
             id="ship"
@@ -148,7 +156,7 @@ const ShipMenu = () => {
         <p>Cost to sail: ${costToSail}</p>
         <button
           type="submit"
-          className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
+          className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 active:bg-green-700"
         >
           Start Mission
         </button>

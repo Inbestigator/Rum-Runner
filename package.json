@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "rum-runner",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "A game about running rum in the 1920s",
   "author": "Inbestigator",
   "main": "main/index.js",

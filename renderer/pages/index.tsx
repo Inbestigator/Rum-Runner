@@ -17,6 +17,22 @@ const places: Place[] = [
   { name: "Ship", coordinates: { x: 350, y: 200 } },
 ];
 
+const tutorials: Place[] = [
+  {
+    name: "First, you should build a ship. Currently you can only afford the rowboat.",
+    coordinates: { x: 100, y: 100 },
+  },
+  {
+    name: "Next, hire some employees. The rowboat only needs 2 employees. Try to get a high loyalty for a low price. You can close and reopen the menu to reroll options.",
+    coordinates: { x: 10, y: 380 },
+  },
+  { name: "You can now sell your alcohol!", coordinates: { x: 260, y: 290 } },
+  {
+    name: "Finish the loop by buying some more alcohol.",
+    coordinates: { x: 10, y: 250 },
+  },
+];
+
 export const BalanceContext = createContext<
   [number, React.Dispatch<React.SetStateAction<number>>]
 >([1000, () => null]);
@@ -42,6 +58,7 @@ const Page = () => {
   const [ownedShips, setOwnedShips] = useState<Ship[]>([]);
   const [started, setStarted] = useState<boolean>(false);
   const [factIndex, setFactIndex] = useState<number>(-1);
+  const [tutIndex, setTutIndex] = useState<Place[]>(tutorials);
 
   useEffect(() => {
     if (balance <= 0) {
@@ -52,14 +69,14 @@ const Page = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (factIndex < 14 && started) {
+      if (factIndex < 14 && started && !selectedPlace) {
         setFactIndex((prevIndex) => prevIndex + 1);
         setSelectedPlace({ name: "Fact", coordinates: { x: 0, y: 0 } });
       }
     }, 60000);
 
     return () => clearInterval(timer);
-  }, [factIndex, started]);
+  }, [factIndex, started, selectedPlace]);
 
   const handleClick = (place: Place) => {
     setSelectedPlace(place);
@@ -69,7 +86,7 @@ const Page = () => {
     setSelectedPlace(null);
   };
 
-  const handleBuyRum = (buyPrice) => {
+  const handleBuyRum = (buyPrice: number) => {
     setRum((prevRum) => prevRum + 10);
     setBalance((prevBalance) => prevBalance - buyPrice);
   };
@@ -87,7 +104,10 @@ const Page = () => {
 
   const Popup = ({ place }: { place: Place }) => {
     return (
-      <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div
+        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50 cursor-pointer"
+        onClick={handleClosePopup}
+      >
         {place.name === "Brewery" ? (
           <BrewMenu onBuyRum={handleBuyRum} />
         ) : place.name === "Hire" ? (
@@ -97,7 +117,7 @@ const Page = () => {
         ) : place.name === "Ship" ? (
           <ShipMenu />
         ) : place.name === "Fact" ? (
-          <Fact index={factIndex} />
+          <Fact index={factIndex} close={handleClosePopup} />
         ) : null}
         <button
           className="absolute top-0 right-0 p-2 text-gray-500"
@@ -147,7 +167,25 @@ const Page = () => {
                     className="absolute w-full h-full bg-cover bg-center"
                     style={{ backgroundImage: `url('pixelart-map.png')` }}
                   ></div>
-
+                  {tutIndex.length > 0 && (
+                    <div
+                      className="absolute max-w-[400px] rounded-lg p-3 cursor-pointer z-10"
+                      style={{
+                        left: tutIndex[0].coordinates.x,
+                        top: tutIndex[0].coordinates.y,
+                        backgroundImage: `url('pixelart-wood.png')`,
+                      }}
+                      onClick={() =>
+                        setTutIndex((prevTutIndex) => {
+                          const newArray = [...prevTutIndex];
+                          newArray.shift();
+                          return newArray;
+                        })
+                      }
+                    >
+                      {tutIndex[0].name}
+                    </div>
+                  )}
                   {places.map((place) => (
                     <div
                       key={place.name}
