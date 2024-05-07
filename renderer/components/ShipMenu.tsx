@@ -51,12 +51,12 @@ const ShipMenu = () => {
         case "Schooner":
           setMaxRumQuantity(100);
           setEmployeesNeeded(10);
-          employeesNeeded = 20;
+          employeesNeeded = 10;
           break;
         case "Golden flying boat":
           setMaxRumQuantity(1000);
           setEmployeesNeeded(100);
-          employeesNeeded = 20;
+          employeesNeeded = 100;
           break;
         default:
           setMaxRumQuantity(0);
