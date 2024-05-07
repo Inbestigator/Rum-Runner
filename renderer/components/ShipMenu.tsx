@@ -153,7 +153,7 @@ const ShipMenu = () => {
         </div>
         <p>Sell price: ${sellPrice}</p>
         <p>Employees needed: {employeesNeeded}</p>
-        <p>Cost to sail: ${costToSail}</p>
+        <p>Employee rates: ${costToSail}</p>
         <button
           type="submit"
           className="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 active:bg-green-700"

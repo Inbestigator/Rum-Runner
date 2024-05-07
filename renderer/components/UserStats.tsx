@@ -23,7 +23,7 @@ const UserStats = () => {
       <div>Alcohol: {rum.toLocaleString()}</div>
       <div>Employees: {hiredEmployees.length.toLocaleString()}</div>
       <div>Balance: ${balance.toLocaleString()}</div>
-      <div>Avg. Loyalty: {calculateAverageLoyalty()}</div>
+      <div>Avg. Loyalty: {Math.round(calculateAverageLoyalty())}</div>
     </div>
   );
 };

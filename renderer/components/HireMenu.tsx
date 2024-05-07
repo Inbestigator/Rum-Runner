@@ -89,7 +89,7 @@ const HireMenu = ({ onHire }: { onHire: (employee: Employee) => void }) => {
           <div className="flex items-start justify-between mb-2 flex-col">
             <div>{employee.name}</div>
             <div>Loyalty: {employee.loyalty}</div>
-            <div>Price: {employee.price}</div>
+            <div>Rate: ${employee.price}</div>
           </div>
           <div className="p-2" />
           <button
